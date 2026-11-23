@@ -1,0 +1,134 @@
+/* ==========================================================================
+   HF-PROGNOSIS: Estilos Mínimos (Colores y fuentes gobernados por brand.yml)
+   ========================================================================== */
+
+/* 1. Barra de navegación: altura unificada y pestaña activa alineada al borde */
+.navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  min-height: 54px !important;
+}
+
+.navbar > .container-fluid {
+  display: flex !important;
+  align-items: stretch !important;
+  min-height: 54px !important;
+}
+
+.navbar .navbar-header,
+.navbar .navbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+.navbar .navbar-collapse {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.navbar .navbar-nav {
+  display: flex !important;
+  align-items: stretch !important;
+  margin-bottom: 0 !important;
+}
+
+.navbar .navbar-nav > li {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.navbar .navbar-nav > li > a {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  padding-top: 5px !important;
+  padding-bottom: 0 !important;
+  border-bottom: 3px solid transparent !important;
+  margin-bottom: 0 !important;
+  text-decoration: none !important;
+}
+
+.navbar .navbar-nav > li.active > a,
+.navbar .navbar-nav > li > a.active {
+  border-bottom-color: var(--bs-primary, #95a1c0) !important;
+}
+
+/* 2. Alineación de controles (idioma y modo oscuro) en el extremo del navbar */
+.navbar .bslib-nav-item {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar .bslib-nav-item .form-group,
+.navbar .bslib-nav-item .shiny-input-container {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.navbar label.shiny-label-null,
+#selected_language-label {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 3. Value boxes: alineación inferior simétrica de títulos */
+.bslib-value-box .value-box-title {
+  min-height: 2.2em;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* 4. Sidebar coordinado en modo claro y modo oscuro con brand.yml */
+.bslib-sidebar-layout {
+  --bslib-sidebar-bg: #f8fafc;
+}
+
+[data-bs-theme="dark"] .bslib-sidebar-layout {
+  --bslib-sidebar-bg: #1e2b37;
+  --_sidebar-bg: #1e2b37;
+}
+
+/* 5. Controles PickerInput (shinyWidgets): vinculación a variables Bootstrap */
+.bootstrap-select.form-control {
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.bootstrap-select > .btn {
+  background-color: var(--bs-body-bg) !important;
+  color: var(--bs-body-color) !important;
+  border: 1px solid var(--bs-border-color) !important;
+}
+
+.bootstrap-select .dropdown-menu {
+  background-color: var(--bs-body-bg) !important;
+  color: var(--bs-body-color) !important;
+  border: 1px solid var(--bs-border-color) !important;
+}
+
+.bootstrap-select .dropdown-menu li a {
+  color: var(--bs-body-color) !important;
+}
+
+.bootstrap-select .dropdown-menu li a:hover,
+.bootstrap-select .dropdown-menu li.selected a {
+  background-color: var(--bs-primary, #95a1c0) !important;
+  color: #ffffff !important;
+}
+
+/* 6. Barra de herramientas de Plotly: fondo transparente en botones */
+.js-plotly-plot .plotly:hover .modebar-group,
+.js-plotly-plot .plotly .modebar-group {
+  background-color: transparent !important;
+}
+
+/* 7. Regla de seguridad: transformar cualquier .text-dark en modo oscuro a variable nativa */
+[data-bs-theme="dark"] .text-dark {
+  color: var(--bs-body-color) !important;
+}

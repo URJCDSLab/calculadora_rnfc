@@ -1,0 +1,43 @@
+meta:
+  name: "HF-Prognosis"
+  title: "HF-Prognosis: Recuperación de la marcha tras fractura de cadera"
+  link: "https://rnfc.es"
+
+logo:
+  small: "www/RNFC.png"
+  medium: "www/RNFC.png"
+
+color:
+  palette:
+    rnfc_nav: "#efeded"
+    rnfc_dark_nav: "#1e2b37"
+    rnfc_btn: "#95a1c0"
+    rnfc_btn_hover: "#6d738c"
+    rnfc_green: "#D0F0C0"
+    rnfc_navy: "#050852"
+    text_dark: "#2c3e50"
+    white: "#ffffff"
+  background: white
+  foreground: text_dark
+  primary: rnfc_btn
+  secondary: rnfc_green
+  success: "#10b981"
+  info: "#0284c7"
+  warning: "#f59e0b"
+  danger: "#ef4444"
+
+defaults:
+  bootstrap:
+    defaults:
+      navbar-light-bg: $brand-rnfc_nav
+      navbar-dark-bg: $brand-rnfc_dark_nav
+      body-secondary-color: rgba($brand-text_dark, 0.75)
+
+typography:
+  fonts:
+    - family: "Inter"
+      source: "google"
+  base: "Inter"
+  headings:
+    family: "Inter"
+    weight: 600
