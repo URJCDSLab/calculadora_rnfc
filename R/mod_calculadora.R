@@ -27,6 +27,7 @@ mod_calculadora_ui <- function(id) {
   i18n <- getOption("app.translator")
 
   bslib::layout_sidebar(
+    fillable = FALSE,
     sidebar = bslib::sidebar(
       width = 380,
       title = uiOutput(ns("sidebar_title_ui")),
@@ -138,51 +139,73 @@ mod_calculadora_ui <- function(id) {
     ),
 
     # PANEL PRINCIPAL
-    # Distribución en 2 columnas: PLOT a la izquierda | Value boxes apilados a la derecha
+    # Distribución en 2 columnas: PLOT a la izquierda | 4 tarjetas KPI a la derecha
     bslib::layout_columns(
       col_widths = c(9, 3),
-      fill = TRUE,
-      max_height = "600px",
+      fill = FALSE,
 
       # COLUMNA IZQUIERDA: Gráfico interactivo Plotly nativo en card
       bslib::card(
         full_screen = TRUE,
-        class = "shadow-sm",
+        class = "shadow-sm mb-0",
         bslib::card_header(
           uiOutput(ns("header_grafico_ui"), inline = TRUE)
         ),
         plotly::plotlyOutput(ns("grafico_grupos"), height = "100%")
       ),
 
-      # COLUMNA DERECHA: 4 Value boxes nativos agrupados por color institucional
-      bslib::layout_column_wrap(
-        width = 1,
-        fill = TRUE,
-        bslib::value_box(
-          title = textOutput(ns("vb_prob_title")),
-          value = textOutput(ns("vb_prob")),
-          showcase = bsicons::bs_icon("person-walking"),
-          theme = "primary"
+      # COLUMNA DERECHA: 4 tarjetas KPI agrupadas por color institucional
+      div(
+        class = "d-flex flex-column gap-3",
+        bslib::card(
+          class = "text-bg-primary border-0 shadow-sm mb-0",
+          bslib::card_body(
+            class = "p-3",
+            tags$div(
+              class = "small fw-semibold opacity-75 d-flex align-items-center gap-2 mb-1",
+              bsicons::bs_icon("person-walking", class = "flex-shrink-0"),
+              textOutput(ns("vb_prob_title"), inline = TRUE)
+            ),
+            tags$div(class = "fs-2 fw-bold lh-1", textOutput(ns("vb_prob"), inline = TRUE))
+          )
         ),
-        bslib::value_box(
-          title = textOutput(ns("vb_ic_title")),
-          value = textOutput(ns("vb_ic")),
-          p(textOutput(ns("vb_ic_rango")), class = "mb-0 small opacity-75"),
-          showcase = bsicons::bs_icon("arrows-expand"),
-          theme = "primary"
+        bslib::card(
+          class = "text-bg-primary border-0 shadow-sm mb-0",
+          bslib::card_body(
+            class = "p-3",
+            tags$div(
+              class = "small fw-semibold opacity-75 d-flex align-items-center gap-2 mb-1",
+              bsicons::bs_icon("arrows-expand", class = "flex-shrink-0"),
+              textOutput(ns("vb_ic_title"), inline = TRUE)
+            ),
+            tags$div(class = "fs-2 fw-bold lh-1", textOutput(ns("vb_ic"), inline = TRUE)),
+            tags$div(class = "small opacity-75 mt-1", textOutput(ns("vb_ic_rango"), inline = TRUE))
+          )
         ),
-        bslib::value_box(
-          title = textOutput(ns("vb_grupo_title")),
-          value = textOutput(ns("vb_grupo")),
-          showcase = bsicons::bs_icon("graph-up"),
-          theme = "secondary"
+        bslib::card(
+          class = "text-bg-secondary border-0 shadow-sm mb-0",
+          bslib::card_body(
+            class = "p-3",
+            tags$div(
+              class = "small fw-semibold opacity-75 d-flex align-items-center gap-2 mb-1",
+              bsicons::bs_icon("graph-up", class = "flex-shrink-0"),
+              textOutput(ns("vb_grupo_title"), inline = TRUE)
+            ),
+            tags$div(class = "fs-2 fw-bold lh-1", textOutput(ns("vb_grupo"), inline = TRUE))
+          )
         ),
-        bslib::value_box(
-          title = textOutput(ns("vb_cohorte_title")),
-          value = textOutput(ns("vb_cohorte")),
-          p(textOutput(ns("vb_cohorte_recup")), class = "mb-0 small opacity-75"),
-          showcase = bsicons::bs_icon("people"),
-          theme = "secondary"
+        bslib::card(
+          class = "text-bg-secondary border-0 shadow-sm mb-0",
+          bslib::card_body(
+            class = "p-3",
+            tags$div(
+              class = "small fw-semibold opacity-75 d-flex align-items-center gap-2 mb-1",
+              bsicons::bs_icon("people", class = "flex-shrink-0"),
+              textOutput(ns("vb_cohorte_title"), inline = TRUE)
+            ),
+            tags$div(class = "fs-2 fw-bold lh-1", textOutput(ns("vb_cohorte"), inline = TRUE)),
+            tags$div(class = "small opacity-75 mt-1", textOutput(ns("vb_cohorte_recup"), inline = TRUE))
+          )
         )
       )
     ),

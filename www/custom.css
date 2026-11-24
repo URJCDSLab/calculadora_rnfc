@@ -76,14 +76,7 @@
   padding: 0 !important;
 }
 
-/* 3. Value boxes: alineación inferior simétrica de títulos */
-.bslib-value-box .value-box-title {
-  min-height: 2.2em;
-  display: flex;
-  align-items: flex-end;
-}
-
-/* 4. Sidebar coordinado en modo claro y modo oscuro con brand.yml */
+/* 3. Sidebar coordinado en modo claro y modo oscuro con brand.yml */
 .bslib-sidebar-layout {
   --bslib-sidebar-bg: #f8fafc;
 }
